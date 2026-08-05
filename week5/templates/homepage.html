@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <title>
+        Home
+    </title>
+</head>
+<h1>Student List</h1>
+
+<body>
+    {% if data %}
+    <table id="all-students">
+        <tr>
+            <th>SNo</th>
+            <th>Roll Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+        </tr>
+        {% for student in data %}
+        <tr>
+            <td>{{student.student_id}}</td>
+            <td><a href="/student/{{student.student_id}}">{{student.roll_number}}</a></td>
+            <td>{{student.first_name}}</td>
+            <td>{{student.last_name}}</td>
+            <td>
+                <a href="/student/{{student.student_id}}/update" type="button">Update</a>
+                <a href="/student/{{student.student_id}}/delete" type="button">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/student/create"> + Add new student</a>
+
+    {% else %}
+    <h2>No student found. Add students:</h2>
+    <br>
+    <div style=text-align:center>
+        <a href="/student/create"> + Add new student</a>
+    </div>
+
+    {% endif %}
+</body>
+
+</html>
