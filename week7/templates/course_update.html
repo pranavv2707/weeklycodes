@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Course</title>
+</head>
+<body>
+    <h2>Update Course</h2>
+    <form action="{{ url_for('course_update', course_id=course.course_id) }}" method="POST" id="update-course-form">
+        <div>
+            <label>Course Code:</label>
+            <input type="text" name="code" value="{{ course.course_code }}" disabled />
+        </div>
+        <div>
+            <label>Course Name:</label>
+            <input type="text" name="c_name" value="{{ course.course_name }}" required />
+        </div>
+        <div>
+            <label>Course Description:</label>
+            <input type="text" name="desc" value="{{ course.course_description or '' }}"/>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>
